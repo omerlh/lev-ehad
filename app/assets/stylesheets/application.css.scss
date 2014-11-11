@@ -4,5 +4,9 @@
  *= require_self
  */
 @import "railsbricks_custom";
+@import "bootstrap-rtl";
+@import url(http://fonts.googleapis.com/css?family=Alef);
 
-
+body {
+    font-family: 'Alef', sans-serif !important;
+}
