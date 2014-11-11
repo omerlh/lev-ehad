@@ -1,12 +1,17 @@
-# PostgreSQL
-#   Ensure the PostgreSQL gem is defined in your Gemfile
-#   gem 'pg'
-development: 
-  adapter: postgresql 
-  encoding: utf8 
-  database: lev_ehad_development 
-  username: yosy
-  host: localhost
+production: &default
+  adapter: postgresql
+  database: lev_ehad_production
   pool: 5
-  port: 5432
-  
+  timeout: 5000
+
+development: &default
+  adapter: postgresql
+  database: lev_ehad_development
+  pool: 5
+  timeout: 5000
+  host: localhost
+
+test: &test
+  <<: *default
+  database: lev_ehad_test
+  min_messages: warning

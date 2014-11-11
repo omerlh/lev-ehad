@@ -33,3 +33,5 @@ gem 'pg'
 
 # Devise: https://github.com/plataformatec/devise
 gem 'devise', '3.4.1'
+
+gem 'rails_12factor', group: :production
