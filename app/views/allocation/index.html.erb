@@ -32,7 +32,7 @@
                       <div class="half-details pull-right">
                           <ul>
                               <li ng-repeat="key in 
-                              ['identification_number','first_name', 'last_name', 'phone_number']">
+                              ['identification_number','first_name', 'last_name', 'phone_number', 'remarks']">
                                     <span class="field_name">
                                         {{volunteerFieldMapping[key]}}:
                                     </span>
@@ -43,13 +43,17 @@
 
                       <div class="half-details pull-left">
                           <ul>
-                              <li ng-repeat="key in ['email', 'has_char','gender','qualifications', 'remarks']">
+                              <li ng-repeat="key in ['email', 'has_char','gender','qualifications']">
                                     <span class="field_name">
                                         {{volunteerFieldMapping[key]}}:
                                     </span>
                                     {{volunteer[key]}}
                                 </li>
                           </ul>
+
+                          <button class="btn btn-danger pull-left" ng-click="deallocatedVolunteer(volunteer)">
+                            לא רלוונטי
+                         </button>
                       </div>
                   </div>
             </div>
@@ -66,6 +70,13 @@
                             <tr ng-repeat="status in hamal_statuses">
                                 <td>{{status.name}}</td>
                                 <td>{{status.requested_amount}} / {{status.allocated_amount}}</td>
+                                <td>
+                                    <button ng-disabled="status.requested_amount == status.allocated_amount"
+                                            class="btn btn-success"
+                                            ng-click="allocateVolunteer(status, volunteer)">
+                                        שבץ
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

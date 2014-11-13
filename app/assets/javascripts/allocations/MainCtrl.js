@@ -36,7 +36,12 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
         $scope.volunteers = [];
         volunteersSvc.getAvailableForDate($scope.currentDate).then(function(vols) {
             $scope.volunteers = vols.data;
-            $scope.volunteer = formatVolunteer($scope.volunteers[0]);
+
+            if(vols.data.length == 0) {
+                toastr.info('לא נמצאו תוצאות');
+            }
+
+            $scope.volunteer = _.first($scope.volunteers);
         });
     }
 
@@ -47,13 +52,6 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
 
     fetch();
 
-    
-
-
-
-    function formatVolunteer(volunteer) {
-        return _.pick(volunteer, _.keys($scope.volunteerFieldMapping))
-    }
 
     $scope.volunteerFieldMapping = {
         "address": 'כתובת',
@@ -70,11 +68,37 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
     };
 
     $scope.onVolunteerClicked = function(volunteer) {
-        $scope.volunteer = formatVolunteer(volunteer);
+        $scope.volunteer = volunteer;
     };
 
-    window.onbeforeunload = function(e) {
-        $.ajax({url: "../volunteer_availability/freeVolunteers", type: "GET"});
-        return "Woopy";
+    $scope.deallocatedVolunteer = function(volunteer) {
+        volunteersSvc.deallocatedVolunteer(volunteer, $scope.currentDate).then(function() {
+            removeVolunteer(volunteer);
+
+            toastr.error('הקצאת מתנדב נמחקה');
+        });
+    };
+
+
+    function removeVolunteer(volunteer) {
+        var idx = $scope.volunteers.indexOf(volunteer);
+        $scope.volunteers.splice(idx, 1);
+        $scope.volunteer = _.first($scope.volunteers);
     }
+
+    $scope.allocateVolunteer = function(allocation_request, volunteer) {
+        volunteersSvc.allocatedVolunteer(allocation_request, volunteer, $scope.currentDate).then(function() {
+            removeVolunteer(volunteer);
+        
+            toastr.info('המתנדב שובץ בהצלחה');
+
+            fetchHamals();
+        });
+    }
+
+    window.onbeforeunload = function() {
+        $.ajax({url: "/volunteer_availability/freeVolunteers", type: "GET"});
+
+        return "Goodbye :)";
+    };
 }]);
