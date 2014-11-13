@@ -4,7 +4,7 @@ class CreateAllocationRequests < ActiveRecord::Migration
       t.integer :amount
       t.date :day
       t.text :description
-      t.references :hamals
+      t.references :hamal
 
       t.timestamps
     end

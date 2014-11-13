@@ -1,3 +1,3 @@
 class Hamal < ActiveRecord::Base
-    has_many :allocationrequests
+    has_many :allocation_requests
 end

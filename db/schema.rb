@@ -20,21 +20,21 @@ ActiveRecord::Schema.define(version: 20141113122923) do
     t.integer  "amount"
     t.date     "day"
     t.text     "description"
-    t.integer  "hamals_id"
+    t.integer  "hamal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "allocations", force: true do |t|
-    t.integer  "volunteer_availabilities_id"
-    t.integer  "allocation_requests_id"
+    t.integer  "volunteer_availability_id"
+    t.integer  "allocation_request_id"
     t.integer  "status"
     t.string   "reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "allocations", ["volunteer_availabilities_id"], name: "index_allocations_on_volunteer_availabilities_id", using: :btree
+  add_index "allocations", ["volunteer_availability_id"], name: "index_allocations_on_volunteer_availability_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20141113122923) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "volunteer_availabilities", force: true do |t|
-    t.integer  "volunteers_id"
+    t.integer  "volunteer_id"
     t.date     "day"
     t.datetime "created_at"
     t.datetime "updated_at"
