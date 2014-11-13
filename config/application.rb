@@ -19,17 +19,16 @@ module LevEhad
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :he
-    I18n.locale = :he
-    
+    #I18n.locale = :he
+
     # turn off warnings triggered by friendly_id
     I18n.enforce_available_locales = false
-    
+
     # Test framework
     config.generators.test_framework false
-    
+
     # autoload lib path
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    
   end
 end

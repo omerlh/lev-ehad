@@ -28,6 +28,7 @@ group :development, :test do
   gem 'figaro', '1.0.0'
   gem 'pry'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 # PostgreSQL

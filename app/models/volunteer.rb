@@ -1,3 +1,3 @@
 class Volunteer < ActiveRecord::Base
-    has_many :volunteeravailabalities
+    has_many :volunteer_availabilities
 end
