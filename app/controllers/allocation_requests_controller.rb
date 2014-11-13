@@ -1,6 +1,6 @@
 class AllocationRequestsController < ApplicationController
   def create
-    @a = AllocationRequest.create(params.require(:allocation_request).permit(:amount, :day, :description, :hamal_id))
+    @a = AllocationRequest.create(params.require(:allocation_request).permit(:requested_amount, :day, :description, :hamal_id))
     @a.save
   end
 
