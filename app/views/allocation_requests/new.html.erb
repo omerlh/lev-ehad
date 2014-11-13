@@ -2,8 +2,8 @@
 <%= stylesheet_link_tag params[:controller] %>
 <div class="allocationRequestForm">
   <%= form_for(@allocation_request, :url => url_for(:action => "create")) do |v| %>
-      <%= v.label :amount %>
-      <%= v.number_field :amount %> <br />
+      <%= v.label :requested_amount %>
+      <%= v.number_field :requested_amount %> <br />
 
       <%= v.label :day %>
       <%= v.date_field :day %> <br />

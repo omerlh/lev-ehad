@@ -7,7 +7,7 @@ class AllocationController < ApplicationController
 
 
   def available_volunteers
-  	volunteers = Volunteer.available_for_day parse_date()
+  	volunteers = Volunteer.available_for_day parse_date(), request.session_options[:id]
     render :json => volunteers
   end
 

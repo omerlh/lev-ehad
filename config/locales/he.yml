@@ -210,7 +210,7 @@ he:
         phone_number: מספר טלפון
         email: דוא״ל
       allocation_request:
-        amount: כמות מתנדבים
+        requested_amount: כמות מתנדבים
         day: תאריך
         description: פירוט
         hamal_id: חמ״ל

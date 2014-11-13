@@ -47,5 +47,5 @@ gem 'unicorn'
 
 gem "pikaday-gem"
 gem "angularjs-rails"
-
+gem 'upmin-admin'
 

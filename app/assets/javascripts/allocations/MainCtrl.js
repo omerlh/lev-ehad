@@ -72,4 +72,9 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
     $scope.onVolunteerClicked = function(volunteer) {
         $scope.volunteer = formatVolunteer(volunteer);
     };
+
+    window.onbeforeunload = function(e) {
+        $.ajax({url: "../volunteer_availability/freeVolunteers", type: "GET"});
+        return "Woopy";
+    }
 }]);

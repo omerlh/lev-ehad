@@ -4,6 +4,8 @@ LevEhad::Application.routes.draw do
   resource :allocation_request
 
   get "/volunteer/all", to: "volunteers#show"
+  get "/volunteer_availability/getVolunteers", to: "volunteer_availability#available_volunteers"
+  get "/volunteer_availability/freeVolunteers", to: "volunteer_availability#free_volunteers"
 
   get 'allocation/index'
   get 'allocation/available_volunteers'
@@ -15,6 +17,9 @@ LevEhad::Application.routes.draw do
   get "/contact", to: "pages#contact", as: "contact"
   post "/emailconfirmation", to: "pages#email", as: "email_confirmation"
 
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Upmin::Engine => '/admin'
+  end
 
   devise_for :users
   namespace :admin do
