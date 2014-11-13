@@ -7,9 +7,16 @@ class AllocationController < ApplicationController
 
 
   def available_volunteers
-      day = Date.parse(params['date'])
-      @volunteers = Volunteer.available_for_day day
+  	volunteers = Volunteer.available_for_day parse_date()
+    render :json => volunteers
+  end
 
-      render :json => @volunteers
+  def hamals_status
+  	statuses = Hamal.status_for parse_date()
+  	render :json => statuses
+  end
+
+  def parse_date
+  	Date.parse(params['date'])
   end
 end

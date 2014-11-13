@@ -7,6 +7,7 @@ LevEhad::Application.routes.draw do
 
   get 'allocation/index'
   get 'allocation/available_volunteers'
+  get 'allocation/hamals_status'
 
   root "pages#home"
   get "home", to: "pages#home", as: "home"

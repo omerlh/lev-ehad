@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+	margin: 0;
+	padding: 0;
+}
 
 .data-grid tbody tr {
     cursor: pointer;
@@ -9,4 +13,13 @@
 
 span.field_name {
     font-weight: bold;
+}
+
+
+.volunteer-details ul {
+	list-style: none;
+}
+
+.volunteer-details .half-details {
+	width: 50%;
 }

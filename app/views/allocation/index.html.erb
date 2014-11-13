@@ -3,46 +3,74 @@
 
         <div class="col-md-4">
             <input id="current_day" type="text" pikaday="pikadayObject"  class="form-control"/>
-            <div>
-                <table class="table table-hover data-grid">
-                    <thead>
-                        <tr>
-                            <td>שם פרטי</td>
-                            <td>שם משפחה</td>
-                            <td>כתובת</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="volunteer in volunteers" ng-click="onVolunteerClicked(volunteer)">
-                            <td>{{volunteer.first_name}}</td>
-                            <td>{{volunteer.last_name}}</td>
-                            <td>{{volunteer.address}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="volunteersGrid" ui-grid="volunteersGridOptions" class="grid" dir="rtl" ui-grid-pinning></div>
+            
+            <table class="table table-hover data-grid">
+                <thead>
+                    <tr>
+                        <th>שם פרטי</th>
+                        <th>שם משפחה</th>
+                        <th>כתובת</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="volunteer in volunteers" ng-click="onVolunteerClicked(volunteer)">
+                        <td>{{volunteer.first_name}}</td>
+                        <td>{{volunteer.last_name}}</td>
+                        <td>{{volunteer.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        
         </div>
 
         <div class="col-md-8">
             <div class="row">
-                <div class="panel panel-default">
+
+                <div class="panel panel-default volunteer-details">
                   <div class="panel-heading">פרטי מתנדב</div>
+                  <div class="panel-body">
+                      <div class="half-details pull-right">
+                          <ul>
+                              <li ng-repeat="key in 
+                              ['identification_number','first_name', 'last_name', 'phone_number']">
+                                    <span class="field_name">
+                                        {{volunteerFieldMapping[key]}}:
+                                    </span>
+                                    {{volunteer[key]}}
+                              </li>
+                          </ul>
+                      </div>
 
-                  <ul class="list-group">
-                      <li class="list-group-item" ng-repeat="(key, value) in volunteer">
-                        <span class="field_name">
-                            {{volunteerFieldMapping[key]}}:
-                        </span>
-                        {{value}}
-                    </li>
-                  </ul>
+                      <div class="half-details pull-left">
+                          <ul>
+                              <li ng-repeat="key in ['email', 'has_char','gender','qualifications', 'remarks']">
+                                    <span class="field_name">
+                                        {{volunteerFieldMapping[key]}}:
+                                    </span>
+                                    {{volunteer[key]}}
+                                </li>
+                          </ul>
+                      </div>
+                  </div>
+            </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">סטטוס הקצאות חמלים</div>
+                    <table class="table table-hover data-grid">
+                        <thead>
+                            <tr>
+                                <th>שם חמל</th>
+                                <th>סטטוס</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="status in hamal_statuses">
+                                <td>{{status.name}}</td>
+                                <td>{{status.requested_amount}} / {{status.allocated_amount}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-
-            <div class="row">
-                <h1>Hamals</h1>
-            </div>
+        
         </div>
 
     </div>

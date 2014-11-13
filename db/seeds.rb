@@ -7,6 +7,7 @@ Volunteer.delete_all
 VolunteerAvailability.delete_all
 Hamal.delete_all
 Allocation.delete_all
+AllocationRequest.delete_all
 
 u = User.new(
     email: "admin@example.com",
@@ -21,8 +22,8 @@ u.save!
 
 10.times do
     v = Volunteer.create(
-        first_name: Faker::Name.name,
-        last_name: Faker::Name.name,
+        first_name: Faker::Lorem.words(1).first,
+        last_name: Faker::Lorem.words(1).first,
         address: Faker::Address.street_address,
         gender: 'F',
         identification_number: Faker::Number.number(9),
@@ -49,10 +50,12 @@ end
     )
 
     2.times do |ari|
-        h.allocation_requests.create(
+        r = h.allocation_requests.create(
             day: ari % 2 == 0 ? Date.today - 1: Date.today + 1,
-            amount: Faker::Number.number(1),
+            requested_amount: 6,
+            allocated_amount: 1,
             description: Faker::Lorem.sentence
         )
+
     end
 end
