@@ -1,7 +1,7 @@
 class CreateVolunteerAvailabilities < ActiveRecord::Migration
   def change
     create_table :volunteer_availabilities do |t|
-      t.references :volunteer
+      t.references :volunteers
       t.date :day
 
       t.timestamps

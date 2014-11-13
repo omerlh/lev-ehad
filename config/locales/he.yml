@@ -192,3 +192,32 @@ he:
       long: ! '%d ב%B, %Y %H:%M'
       short: ! '%d %b %H:%M'
     pm: pm
+  activerecord:
+    models:
+      volunteer: מתנדב
+      allocation_request: בקשת הקצאת מתנדבים
+    attributes:
+      volunteer:
+        first_name: שם פרטי
+        last_name: שם משפחה
+        address: כתובת
+        gender: מין
+        identification_number: ת.ז.
+        has_char: בעל רכב?
+        qualifications: תחום עזרה
+        remarks: הערות
+        age: גיל
+        phone_number: מספר טלפון
+        email: דוא״ל
+      allocation_request:
+        amount: כמות מתנדבים
+        day: תאריך
+        description: פירוט
+        hamal_id: חמ״ל
+    actions:
+      volunteers:
+        new: בקשת התנדבות
+        create: תודה! בקשתך התקבלה. ניצור איתך קשר בהתאם לצורך
+      allocation_request:
+        new: בקשת הקצאת מתנדבים
+        create: הבקשה נקלטה במערכת
