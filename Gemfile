@@ -23,13 +23,17 @@ gem 'font-awesome-sass', '4.2.2'
 # Bootstrap 3: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.1'
 
+gem 'kendoui-rails'
+
 # Figaro: https://github.com/laserlemon/figaro
 group :development, :test do
   gem 'figaro', '1.0.0'
   gem 'pry'
   gem 'pry-rails'
-  gem 'faker'
 end
+
+
+gem 'faker'
 
 # PostgreSQL
 gem 'pg'
@@ -40,3 +44,8 @@ gem 'devise', '3.4.1'
 gem 'rails_12factor', group: :production
 
 gem 'unicorn'
+
+gem "pikaday-gem"
+gem "angularjs-rails"
+
+
