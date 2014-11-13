@@ -17,5 +17,40 @@ rails s
 foreman start
 ```
 
+Database Schema
+================
 
+Hamal
+    = has many AllocationRequest
+    - Name
+    - Location
+    - Description
 
+Volunteer
+    = has many VolunteerAvailabality
+    - FirstName
+    - LastName
+    - Address
+    - Gender
+    - IdentificatoinNumber
+    - HasCar
+    - Qualifications
+    - Remarks
+    - Age
+    - PhoneNumber
+
+VolunteerAvailabality
+    = belongs to Volunteer
+    - Day
+
+AllocationRequest
+    = belongs to Hamal
+    - Amount
+    - Day
+    - Description
+
+Allocation
+    = belongs to VolunteerAvailabality
+    = belongs to AllocationRequest
+    - Status
+    - Reason
