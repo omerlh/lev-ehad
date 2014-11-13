@@ -4,6 +4,8 @@ LevEhad::Application.routes.draw do
   resource :allocation_request
 
   get "/volunteer/all", to: "volunteers#show"
+  get "/volunteer_availability/getVolunteers", to: "volunteer_availability#available_volunteers"
+  get "/volunteer_availability/freeVolunteers", to: "volunteer_availability#free_volunteers"
 
   get 'allocation/index'
   get 'allocation/available_volunteers'

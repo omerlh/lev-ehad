@@ -18,4 +18,5 @@ class VolunteersController < ApplicationController
 
   def delete
   end
+
 end
