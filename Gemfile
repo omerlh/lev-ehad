@@ -26,6 +26,8 @@ gem 'bootstrap-sass', '3.3.0.1'
 # Figaro: https://github.com/laserlemon/figaro
 group :development, :test do
   gem 'figaro', '1.0.0'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 # PostgreSQL
