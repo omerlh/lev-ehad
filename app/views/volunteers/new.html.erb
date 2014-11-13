@@ -1,0 +1,8 @@
+<h1>Volunteer#create</h1>
+<%= form_for(@volunteer) do |v| %>
+    <%= v.label :first_name %>
+    <%= v.text_field :first_name %> <br />
+
+    <%= submit_tag "Sing in" %>
+<% end %>
+<p>Find me in app/views/volunteer/create.html.erb</p>
