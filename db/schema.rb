@@ -36,12 +36,6 @@ ActiveRecord::Schema.define(version: 20141113143615) do
 
   add_index "allocations", ["volunteer_availability_id"], name: "index_allocations_on_volunteer_availability_id", using: :btree
 
-  create_table "controllers", force: true do |t|
-    t.string   "volunteers"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false

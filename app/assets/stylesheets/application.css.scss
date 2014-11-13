@@ -2,11 +2,20 @@
  * Overwritten by RailsBricks
  *
  *= require_self
+ *= require pikaday
+ *= require kendo/kendo.common.min
+ *= require kendo/kendo.default.min
  */
 @import "railsbricks_custom";
 @import "bootstrap-rtl";
+
 @import url(http://fonts.googleapis.com/css?family=Alef);
 
 body {
     font-family: 'Alef', sans-serif !important;
+}
+
+
+.grid {
+    height: 100%;
 }
