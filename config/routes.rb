@@ -1,6 +1,7 @@
 LevEhad::Application.routes.draw do
 
   resource :volunteer
+  resource :allocation_request
 
   get "/volunteer/all", to: "volunteers#show"
 
