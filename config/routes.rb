@@ -17,6 +17,9 @@ LevEhad::Application.routes.draw do
   get "/contact", to: "pages#contact", as: "contact"
   post "/emailconfirmation", to: "pages#email", as: "email_confirmation"
 
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Upmin::Engine => '/admin'
+  end
 
   devise_for :users
   namespace :admin do
