@@ -10,7 +10,7 @@ class VolunteersController < ApplicationController
                                                             :email))
 
 
-    params[:from_day].upto(params[:to_day]) { |date| @v.volunteer_availabilities.create(:day => date)}
+    params['from_day'].upto(params['to_day']) { |date| @v.volunteer_availabilities.create(:day => date)}
 
     #@va = @v.volunteer_availabilities.new()
 
