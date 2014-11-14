@@ -18,14 +18,16 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', function($sc
         },
         onSelect: function(selectedDate) {
             $scope.currentDate = selectedDate;
-            fetchVolunteers();
         }
     };
 
     var isListeningToDateChanged = false;
     
 
-    $scope.$watch('selectedHaml', function() {
+    $scope.$watch('selectedHaml', function(newValue, oldValue) {
+        if(newValue == oldValue) return;
+
+
         fetchVolunteers();
 
         if(!isListeningToDateChanged) {
