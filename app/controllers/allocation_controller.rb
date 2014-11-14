@@ -32,10 +32,12 @@ class AllocationController < ApplicationController
 
   def allocate_volunteer
     volunteer_id = params['volunteer_id']
+    hamal_id = params['hamal_id']
     day = parse_date
 
     volunteer_availbility = VolunteerAvailability.where(volunteer_id: volunteer_id, day: day).first  
     volunteer_availbility.status = STATUS[:MAIN_HAMAL_ALLOCATED]
+    volunteer_availbility.hamal_id = hamal_id
     volunteer_availbility.save 
     
     allocation_request_id = params['allocation_request_id']

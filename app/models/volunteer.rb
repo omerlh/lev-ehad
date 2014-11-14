@@ -28,6 +28,7 @@ class Volunteer < ActiveRecord::Base
           end
         end
       end
+      Rails.logger.debug(v.inspect)
       return v
     end
 
@@ -39,5 +40,15 @@ class Volunteer < ActiveRecord::Base
         volunteer.save!
       end
     end
+  end
+
+  def self.allocated_volunteers day, hamal_id
+    VolunteerAvailability
+      .joins(:volunteer)    
+      .where(day: day, 
+        hamal_id: hamal_id, 
+        status: STATUS[:MAIN_HAMAL_ALLOCATED])
+      .map(&:volunteer)      
+                        
   end
 end

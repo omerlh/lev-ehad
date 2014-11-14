@@ -35,14 +35,14 @@ u.save!
 
     2.times do |vic|
         v.volunteer_availabilities.create(
-            day: vic % 2 == 0 ? Date.today - 1: Date.today + 1,
+            day: vic % 2 == 0 ? Date.today - 1: Date.today,
             status: 0
         )
     end
 end
 
 
-3.times do
+5.times do
     h = Hamal.create(
         name: Faker::Company.name,
         location: Faker::Address.city,
@@ -51,11 +51,12 @@ end
 
     2.times do |ari|
         r = h.allocation_requests.create(
-            day: ari % 2 == 0 ? Date.today - 1: Date.today + 1,
+            day: ari % 2 == 0 ? Date.today - 1: Date.today,
             requested_amount: 6,
-            allocated_amount: 1,
+            allocated_amount: 0,
             description: Faker::Lorem.sentence
         )
 
     end
+
 end

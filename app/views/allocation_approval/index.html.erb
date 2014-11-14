@@ -1,0 +1,69 @@
+
+<div ng-app="allocationModule">
+    <div class="row" ng-controller="MainCtrl">
+
+        <div class="col-md-4" ng-init="hamals=<%= @hamals.to_json %>">
+        	
+        	<select class="form-control" ng-model="selectedHaml"
+        								 ng-options="hamal.name for hamal in hamals">
+        		
+        	</select>
+        	<br/>
+
+            <input id="current_day" type="text" pikaday="pikadayObject"  class="form-control"/>
+            
+            <table class="table table-hover data-grid">
+                <thead>
+                    <tr>
+                        <th>שם פרטי</th>
+                        <th>שם משפחה</th>
+                        <th>כתובת</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="volunteer in volunteers | orderBy:'first_name'" ng-click="onVolunteerClicked(volunteer)">
+                        <td>{{volunteer.first_name}}</td>
+                        <td>{{volunteer.last_name}}</td>
+                        <td>{{volunteer.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+
+                <div class="panel panel-default volunteer-details">
+                  <div class="panel-heading">פרטי מתנדב</div>
+                  <div class="panel-body">
+                      <ul class="list-group">
+                          <li class="list-group-item" ng-repeat="key in 
+                          ['identification_number','first_name', 'last_name', 'phone_number', 'email', 'has_char','gender','qualifications', 'remarks']">
+                                <span class="field_name">
+                                    {{volunteerFieldMapping[key]}}:
+                                </span>
+                                {{volunteer[key]}}
+                          </li>
+                      </ul>
+
+                      <div class="pull-left">
+                          
+                          <button class="btn btn-danger " ng-click="denyVolunteer(volunteer)">
+                            דחה
+                         </button>
+
+                         <button class="btn btn-success" ng-click="approveVolunteer(volunteer)">
+                            אשר
+                         </button>
+                      </div>
+                  </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%= stylesheet_link_tag "allocation" %>
+<%= javascript_include_tag "allocation_approval" %>
+

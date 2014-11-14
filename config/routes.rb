@@ -1,5 +1,7 @@
 LevEhad::Application.routes.draw do
 
+  get 'allocation_approval/index'
+
   resource :volunteer
   resource :allocation_request
 
@@ -9,9 +11,12 @@ LevEhad::Application.routes.draw do
 
   get 'allocation/index'
   get 'allocation/available_volunteers'
+  get 'allocation_approval/available_volunteers'
   get 'allocation/hamals_status'
   post 'allocation/dealloc_volunteer'
   post 'allocation/allocate_volunteer'
+  post 'allocation_approval/deny_volunteer'
+  post 'allocation_approval/approve_volunteer'
 
   root "pages#home"
   get "home", to: "pages#home", as: "home"

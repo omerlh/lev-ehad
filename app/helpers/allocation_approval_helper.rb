@@ -1,0 +1,2 @@
+module AllocationApprovalHelper
+end
