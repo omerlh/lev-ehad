@@ -20,7 +20,20 @@ body {
     font-size: 16px !important;
 }
 
+#wrap > .fluid-container {
+	padding-right: 37px;
+	padding-left: 30px;
+}
 
 .grid {
     height: 100%;
+}
+
+.home-center {
+	padding: 48px 0;
+}
+
+#footer {
+	font-size: 12px;
+	text-align: center;
 }

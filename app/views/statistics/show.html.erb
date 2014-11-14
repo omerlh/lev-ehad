@@ -1,10 +1,30 @@
 
 <div ng-app="statisticsModule">
   <div class="row" ng-controller="MainCtrl">
-    From:<input pikaday="start_day"/>
-    To:<input pikaday="end_day"/>
-    <button ng-click="calculate_volunteers(start_day.getDate(), end_day.getDate())">Click me</button>
+  	<form class="form-inline" role="form">
+  		 <div class="form-group">
+		    <div class="input-group">
+		      <label class="sr-only" for="start_day">From</label>
+		      <input pikaday="start_day" class="form-control" id="start_day" placeholder="מ.." />
+		    </div>
+		  </div>
+	    
+	      <div class="form-group">
+		    <div class="input-group">
+		      <label class="sr-only" for="end_day">To</label>
+		      <input pikaday="end_day" class="form-control" id="end_day" placeholder="ל.." />
+		    </div>
+		  </div>
+	    
+	    <button class="btn btn-default"
+	    		type="submit"
+	    		ng-click="calculate_volunteers(start_day.getDate(), end_day.getDate())">
+	    		הצג נתונים
+	    </button>
+	</form>
+	<br/>
     <highchart config="chartConfig"></highchart>
-</div></div>
+  </div>
+</div>
 
 <%= javascript_include_tag "statistics" %>
