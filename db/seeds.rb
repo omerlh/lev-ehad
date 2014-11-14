@@ -19,7 +19,7 @@ u.save!
 
 
 
-10.times do
+100.times do
     v = Volunteer.create(
         first_name: Faker::Lorem.words(1).first,
         last_name: Faker::Lorem.words(1).first,
@@ -42,7 +42,7 @@ u.save!
 end
 
 
-5.times do
+10.times do
     h = Hamal.create(
         name: Faker::Company.name,
         location: Faker::Address.city,

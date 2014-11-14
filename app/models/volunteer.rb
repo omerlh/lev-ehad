@@ -18,7 +18,7 @@ class Volunteer < ActiveRecord::Base
                 .where( day: day,
                         status: [STATUS[:UNALLOCATED], STATUS[:LOCAL_HAMAL_DISAPRROVED]],
                         "volunteers.sessionid" => nil)
-                .limit(5)
+                .limit(10)
                 .lock(true)
                 .map(&:volunteer)
                 
