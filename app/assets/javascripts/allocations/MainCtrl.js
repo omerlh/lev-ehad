@@ -98,7 +98,5 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
 
     window.onbeforeunload = function() {
         $.ajax({url: "/volunteer_availability/freeVolunteers", type: "GET"});
-
-        return "Goodbye :)";
     };
 }]);
