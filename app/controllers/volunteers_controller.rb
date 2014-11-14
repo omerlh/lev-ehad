@@ -8,6 +8,12 @@ class VolunteersController < ApplicationController
                                                             :gender, :identification_number, :has_char,
                                                             :qualifications, :remarks, :age, :phone_number,
                                                             :email))
+
+
+    params[:from_day].upto(params[:to_day]) { |date| @v.volunteer_availabilities.create(:day => date)}
+
+    #@va = @v.volunteer_availabilities.new()
+
     @v.save
 
   end
@@ -18,5 +24,6 @@ class VolunteersController < ApplicationController
 
   def delete
   end
+
 
 end
