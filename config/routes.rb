@@ -1,11 +1,15 @@
 LevEhad::Application.routes.draw do
 
+  get 'statistics/show'
+  get "statistics/sum_volunteers", to: "statistics#sum_volunteers"
+
   resource :volunteer
   resource :allocation_request
 
   get "/volunteer/all", to: "volunteers#show"
   get "/volunteer_availability/getVolunteers", to: "volunteer_availability#available_volunteers"
   get "/volunteer_availability/freeVolunteers", to: "volunteer_availability#free_volunteers"
+
 
   get 'allocation/index'
   get 'allocation/available_volunteers'
