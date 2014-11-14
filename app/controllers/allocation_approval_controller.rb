@@ -6,6 +6,7 @@ class AllocationApprovalController < ApplicationController
   end
 
   def available_volunteers 
+    Rails.logger.debug("here")
   	date = parse_date
   	hamal_id = params['hamal_id']
   	volunteers = Volunteer.allocated_volunteers date, hamal_id
@@ -34,6 +35,11 @@ class AllocationApprovalController < ApplicationController
     va.status = STATUS[:LOCAL_HAMAL_DISAPRROVED]
     va.reason = params['reason']
     va.save
+
+    a = AllocationRequest.where(:hamal_id => hamal_id).where(:day => date).first
+
+    a.allocated_amount = a.allocated_amount - 1
+    a.save
 
     render :json => { ok: true }
   end

@@ -102,7 +102,7 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', function($sc
 	$scope.approveVolunteer = function(volunteer) {
         volunteersSvc.approveVolunteer(volunteer.id, $scope.selectedHaml.id, $scope.currentDate)
                  .then(function() {
-                        toastr.error('המתנד נדחה');
+                        toastr.info('המתנדב אושר');
                         removeVolunteer(volunteer);
 
                  });
