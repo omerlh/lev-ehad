@@ -86,6 +86,11 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
     function removeVolunteer(volunteer) {
         var idx = $scope.volunteers.indexOf(volunteer);
         $scope.volunteers.splice(idx, 1);
+
+        if(_.isEmpty($scope.volunteers)) {
+            fetch();
+        }
+        
         $scope.volunteer = _.first($scope.volunteers);
     }
 
