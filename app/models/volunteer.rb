@@ -4,18 +4,28 @@ class Volunteer < ActiveRecord::Base
 
     def self.available_for_day day, sessionid
       v = nil
-      Volunteer.transaction do
-        v = VolunteerAvailability
+      v = VolunteerAvailability
               .joins(:volunteer)
-              .where(day: day)
-              .where("volunteers.sessionid" => nil)
-              .limit(10)
-              .lock(true)
+              .where( day: day,
+                      status: [STATUS[:UNALLOCATED], STATUS[:LOCAL_HAMAL_DISAPRROVED]],
+                      "volunteers.sessionid" => sessionid)
               .map(&:volunteer)
-              
-        v.each do |volunteer|
-          volunteer.sessionid = sessionid
-          volunteer.save!
+
+      if v.empty?
+        Volunteer.transaction do
+          v = VolunteerAvailability
+                .joins(:volunteer)
+                .where( day: day,
+                        status: [STATUS[:UNALLOCATED], STATUS[:LOCAL_HAMAL_DISAPRROVED]],
+                        "volunteers.sessionid" => nil)
+                .limit(10)
+                .lock(true)
+                .map(&:volunteer)
+                
+          v.each do |volunteer|
+            volunteer.sessionid = sessionid
+            volunteer.save!
+          end
         end
       end
       return v

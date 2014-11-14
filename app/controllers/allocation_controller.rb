@@ -35,8 +35,9 @@ class AllocationController < ApplicationController
     day = parse_date
 
     volunteer_availbility = VolunteerAvailability.where(volunteer_id: volunteer_id, day: day).first  
-    volunteer_availbility.status = STATUS['MAIN_HAMAL_ALLOCATED']
-
+    volunteer_availbility.status = STATUS[:MAIN_HAMAL_ALLOCATED]
+    volunteer_availbility.save 
+    
     allocation_request_id = params['allocation_request_id']
     
     

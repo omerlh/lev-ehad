@@ -35,7 +35,8 @@ u.save!
 
     2.times do |vic|
         v.volunteer_availabilities.create(
-            day: vic % 2 == 0 ? Date.today - 1: Date.today + 1
+            day: vic % 2 == 0 ? Date.today - 1: Date.today + 1,
+            status: 0
         )
     end
 end
