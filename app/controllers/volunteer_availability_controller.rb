@@ -14,6 +14,6 @@ class VolunteerAvailabilityController < ApplicationController
 
   def free_volunteers
     Volunteer.free_volunteers request.session_options[:id]
-    render :html => ""
+    render :json => { ok: true }
   end
 end
