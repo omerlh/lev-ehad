@@ -1,4 +1,4 @@
-<%= javascript_include_tag "statistics" %>
+
 <div ng-app="statisticsModule">
   <div class="row" ng-controller="MainCtrl">
     From:<input pikaday="start_day"/>
@@ -6,3 +6,5 @@
     <button ng-click="calculate_volunteers(start_day.getDate(), end_day.getDate())">Click me</button>
     <highchart config="chartConfig"></highchart>
 </div></div>
+
+<%= javascript_include_tag "statistics" %>
