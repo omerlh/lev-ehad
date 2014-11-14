@@ -1,21 +1,12 @@
 <h4><%=t ('activerecord.actions.allocation_request.new') %></h4>
 <%= stylesheet_link_tag params[:controller] %>
 <div class="allocationRequestForm">
-  <%= form_for(@allocation_request, :url => url_for(:action => "create")) do |v| %>
-      <%= v.label :requested_amount %>
+  <%= bootstrap_form_for(@allocation_request, :url => url_for(:action => "create")) do |v| %>
       <%= v.number_field :requested_amount %> <br />
-
-      <%= v.label :day %>
       <%= v.date_field :day %> <br />
-
-      <%= v.label :description %>
       <%= v.text_field :description %> <br />
-
-
       <% options = options_from_collection_for_select(@hamals, 'id', 'name') %>
-      <%= v.label :hamal_id %>
       <%= v.select :hamal_id, options %> <br />
-
       <%= v.submit %>
   <% end %>
 </div>

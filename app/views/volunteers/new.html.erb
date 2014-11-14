@@ -2,43 +2,20 @@
 <%= stylesheet_link_tag params[:controller] %>
 <div class="volunteerForm">
 
-  <%= form_for(@volunteer, :url => url_for(:action => "create")) do |v| %>
-      <%= v.label :first_name %>
+  <%= bootstrap_form_for(@volunteer, :url => url_for(:action => "create")) do |v| %>
       <%= v.text_field :first_name %> <br />
-
-      <%= v.label :last_name %>
       <%= v.text_field :last_name %> <br />
-
-      <%= v.label :address %>
       <%= v.text_field :address %> <br />
-
-      <%= v.label :gender %>
       <%= v.text_field :gender %> <br />
-
-      <%= v.label :identification_number %>
       <%= v.text_field :identification_number %> <br />
-
-      <%= v.label :has_char %>
       <%= v.check_box :has_char %> <br />
-
-      <%= v.label :qualifications %>
       <%= v.text_field :qualifications %> <br />
-
-      <%= v.label :remarks %>
       <%= v.text_field :remarks %> <br />
-
-      <%= v.label :age %>
       <%= v.number_field :age %> <br />
-
-      <%= v.label :phone_number %>
       <%= v.text_field :phone_number %> <br />
-
-      <%= v.label :email %>
       <%= v.email_field :email %> <br />
-
       <%= label_tag 'מ' %>
       <%= date_field_tag ':from_day' %>
-
       <%= label_tag 'עד' %>
       <%= date_field_tag ':to_day' %>
 
