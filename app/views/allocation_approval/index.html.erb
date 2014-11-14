@@ -21,10 +21,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="volunteer in volunteers | orderBy:'first_name'" ng-click="onVolunteerClicked(volunteer)">
-                        <td>{{volunteer.first_name}}</td>
-                        <td>{{volunteer.last_name}}</td>
-                        <td>{{volunteer.address}}</td>
+                    <tr ng-repeat="v in volunteers | orderBy:'first_name'" ng-click="onVolunteerClicked(v)"
+                    ng-class="{selected: v.id==volunteer.id}">
+                        <td>{{v.first_name}}</td>
+                        <td>{{v.last_name}}</td>
+                        <td>{{v.address}}</td>
                     </tr>
                 </tbody>
             </table>
