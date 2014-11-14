@@ -9,6 +9,8 @@ angular.module('angularPikaday', [])
     },
     link: function (scope, elem, attrs) {
 
+      console.log(attrs.defaultDate);
+
       var picker = new Pikaday({
 
         field: elem[0],

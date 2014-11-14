@@ -64,6 +64,8 @@
     </div>
 </div>
 
-<%= stylesheet_link_tag "allocation" %>
-<%= javascript_include_tag "allocation_approval" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "allocation" %>
+  <%= javascript_include_tag "allocation_approval" %>
+<% end %>
 

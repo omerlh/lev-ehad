@@ -2,7 +2,7 @@
     <div class="row" ng-controller="MainCtrl">
 
         <div class="col-md-4">
-            <input id="current_day" type="text" pikaday="pikadayObject"  class="form-control"/>
+            <input id="current_day" type="text" pikaday="pikadayObject" class="form-control"/>
             
             <table class="table table-hover data-grid">
                 <thead>
@@ -87,6 +87,9 @@
     </div>
 </div>
 
-<%= stylesheet_link_tag "allocation" %>
-<%= javascript_include_tag "allocation" %>
 
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "allocation" %>
+  <%= javascript_include_tag "allocation" %>
+<% end %>

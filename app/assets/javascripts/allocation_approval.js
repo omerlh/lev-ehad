@@ -5,7 +5,8 @@
 allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', function($scope, volunteersSvc) {
 
     $scope.currentDate = new Date(Date.now());
-
+    $('#current_day').val($scope.currentDate.toDateString());
+    
     $scope.pikadayObject = {
         field: document.getElementById('current_day'),
         isRTL: true,

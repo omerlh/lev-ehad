@@ -1,6 +1,7 @@
 allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc', function($scope, volunteersSvc, hamalSvc) {
 
     $scope.currentDate = new Date(Date.now());
+    $('#current_day').val($scope.currentDate.toDateString());
 
     $scope.pikadayObject = {
         field: document.getElementById('current_day'),
@@ -15,6 +16,8 @@ allocationModule.controller('MainCtrl', ['$scope', 'VolunteersSvc', 'HamalsSvc',
         onSelect: function(selectedDate) {
             $scope.currentDate = selectedDate;
             fetchVolunteers();
+
+            $("#current_day").val(selectedDate.toDateString());
         }
     };
 
