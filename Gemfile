@@ -53,3 +53,4 @@ gem 'toastr-rails'
 gem "highcharts-rails", "~>3.0.0"
 gem "highcharts-ng-rails", "~>0.0.3"
 
+gem 'bootstrap_form'
