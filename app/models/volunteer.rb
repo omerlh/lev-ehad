@@ -5,7 +5,14 @@ class Volunteer < ActiveRecord::Base
     def self.available_for_day day, sessionid
       v = nil
       Volunteer.transaction do
-        v = VolunteerAvailability.joins(:volunteer).where(day: day).where("volunteers.sessionid" => nil).limit(10).lock(true).map(&:volunteer)
+        v = VolunteerAvailability
+              .joins(:volunteer)
+              .where(day: day)
+              .where("volunteers.sessionid" => nil)
+              .limit(10)
+              .lock(true)
+              .map(&:volunteer)
+              
         v.each do |volunteer|
           volunteer.sessionid = sessionid
           volunteer.save!

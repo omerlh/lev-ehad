@@ -1,4 +1,4 @@
-require 'allocation'
+require 'volunteer_availability'
 
 class AllocationController < ApplicationController
 
@@ -27,7 +27,7 @@ class AllocationController < ApplicationController
 
   	VolunteerAvailability.where(volunteer_id: volunteer_id, day: day).delete_all
 
-    render :json => {}
+    render :json => { ok: true }
   end
 
   def allocate_volunteer
@@ -35,18 +35,16 @@ class AllocationController < ApplicationController
     day = parse_date
 
     volunteer_availbility = VolunteerAvailability.where(volunteer_id: volunteer_id, day: day).first  
+    volunteer_availbility.status = STATUS['MAIN_HAMAL_ALLOCATED']
 
     allocation_request_id = params['allocation_request_id']
     
-    allocation = Allocation.create(allocation_request_id: allocation_request_id,
-                          volunteer_availability_id: volunteer_availbility.id,
-                          status: STATUS['MAIN_HAMAL_ALLOCATED'])
     
     ar = AllocationRequest.find_by_id(allocation_request_id)
     ar.allocated_amount = ar.allocated_amount + 1
     ar.save
 
-    render :json => allocation
+    render :json => { ok: true }
   end
 
   def parse_date

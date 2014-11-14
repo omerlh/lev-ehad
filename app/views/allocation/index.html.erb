@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="volunteer in volunteers" ng-click="onVolunteerClicked(volunteer)">
+                    <tr ng-repeat="volunteer in volunteers | orderBy:'first_name'" ng-click="onVolunteerClicked(volunteer)">
                         <td>{{volunteer.first_name}}</td>
                         <td>{{volunteer.last_name}}</td>
                         <td>{{volunteer.address}}</td>
@@ -67,7 +67,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="status in hamal_statuses">
+                            <tr ng-repeat="status in hamal_statuses | orderBy:'name'">
                                 <td>{{status.name}}</td>
                                 <td>{{status.requested_amount}} / {{status.allocated_amount}}</td>
                                 <td>

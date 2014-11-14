@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113194726) do
+ActiveRecord::Schema.define(version: 20141114000306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 20141113194726) do
     t.integer  "requested_amount"
     t.integer  "allocated_amount"
   end
-
-  create_table "allocations", force: true do |t|
-    t.integer  "volunteer_availability_id"
-    t.integer  "allocation_request_id"
-    t.integer  "status"
-    t.string   "reason"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "allocations", ["volunteer_availability_id"], name: "index_allocations_on_volunteer_availability_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -88,6 +77,8 @@ ActiveRecord::Schema.define(version: 20141113194726) do
     t.date     "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status"
+    t.string   "reason"
   end
 
   create_table "volunteers", force: true do |t|
