@@ -6,7 +6,6 @@ User.delete_all
 Volunteer.delete_all
 VolunteerAvailability.delete_all
 Hamal.delete_all
-Allocation.delete_all
 AllocationRequest.delete_all
 
 u = User.new(
