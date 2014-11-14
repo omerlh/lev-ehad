@@ -195,7 +195,7 @@ he:
   activerecord:
     models:
       volunteer: מתנדב
-      allocation_request: בקשת הקצאת מתנדבים
+      allocation_request: פרטי הקצאה
     attributes:
       volunteer:
         first_name: שם פרטי
@@ -210,14 +210,14 @@ he:
         phone_number: מספר טלפון
         email: דוא״ל
       allocation_request:
-        requested_amount: כמות מתנדבים
-        day: תאריך
-        description: פירוט
-        hamal_id: חמ״ל
+        requested_amount: כמה?
+        day: מתי?
+        description: בקשות מיוחדות
+        hamal_id: איפה?
     actions:
       volunteers:
-        new: בקשת התנדבות
+        new: פרטי מתנדב
         create: תודה! בקשתך התקבלה. ניצור איתך קשר בהתאם לצורך
       allocation_request:
-        new: בקשת הקצאת מתנדבים
+        new: אני צריך...
         create: הבקשה נקלטה במערכת

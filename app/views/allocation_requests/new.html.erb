@@ -4,9 +4,10 @@
   <%= bootstrap_form_for(@allocation_request, :url => url_for(:action => "create")) do |v| %>
       <%= v.number_field :requested_amount %> <br />
       <%= v.date_field :day %> <br />
-      <%= v.text_field :description %> <br />
       <% options = options_from_collection_for_select(@hamals, 'id', 'name') %>
       <%= v.select :hamal_id, options %> <br />
-      <%= v.submit %>
+      
+      <%= v.text_field :description %> <br />
+      <%= v.submit class: "btn btn-primary" %>
   <% end %>
 </div>

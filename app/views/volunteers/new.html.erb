@@ -1,4 +1,4 @@
-<h1><%=t ('activerecord.actions.volunteers.new') %></h1>
+<h4><%=t ('activerecord.actions.volunteers.new') %></h4>
 <%= stylesheet_link_tag params[:controller] %>
 <div class="volunteerForm">
 
@@ -18,7 +18,8 @@
       <%= date_field_tag 'from_day' %>
       <%= label_tag 'עד' %>
       <%= date_field_tag 'to_day' %>
-
-      <%= v.submit %>
+      <br/><br/>
+      
+      <%= v.submit class: "btn btn-primary" %>
   <% end %>
 </div>
