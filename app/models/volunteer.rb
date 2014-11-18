@@ -1,6 +1,7 @@
 class Volunteer < ActiveRecord::Base
     has_many :volunteer_availabilities
     validates :first_name, presence: true
+    validates :last_name, presence: true
 
     def self.available_for_day day, sessionid
       v = nil

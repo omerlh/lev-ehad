@@ -7,6 +7,8 @@ describe Volunteer do
   it "is invalid without a firstname" do
     FactoryGirl.build(:Volunteer, first_name: nil).should_not be_valid
   end
-  it "is invalid without a lastname" 
+  it "is invalid without a lastname" do
+    FactoryGirl.build(:Volunteer, last_name: nil).should_not be_valid
+  end
   it "returns a Volunteer's full name as a string" 
 end
