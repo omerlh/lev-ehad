@@ -1,8 +1,8 @@
 require 'faker'
 
 FactoryGirl.define do 
-  factory :volunteer do |f| 
-    f.firstname { Faker::Name.first_name }
-    f.lastname { Faker::Name.last_name }
+  factory :Volunteer do |f| 
+    f.first_name { Faker::Name.first_name }
+    f.last_name { Faker::Name.last_name }
   end 
 end
