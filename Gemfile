@@ -29,8 +29,15 @@ group :development, :test do
   gem 'figaro', '1.0.0'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rspec-rails' 
+  gem 'factory_girl_rails'
 end
 
+group :test do 
+  gem 'capybara' 
+  gem 'guard-rspec' 
+  gem 'launchy' 
+end
 
 gem 'faker'
 
