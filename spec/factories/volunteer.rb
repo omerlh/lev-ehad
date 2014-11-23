@@ -1,11 +1,6 @@
 require 'faker'
 
 FactoryGirl.define do 
-  
-  factory :volunteer_availability do 
-    day { Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date } 
-    volunteer
-  end
 
   factory :volunteer do 
     first_name { Faker::Name.first_name }
@@ -23,7 +18,8 @@ FactoryGirl.define do
       # attributes; `create_list`'s second argument is the number of records
       # to create and we make sure the user is associated properly to the post
       before(:create) do |volunteer, evaluator|
-        evaluator.volunteer_avilabilities_count.times {volunteer.volunteer_availabilities.new()}
+        evaluator.volunteer_avilabilities_count.times {
+        	volunteer.volunteer_availabilities << FactoryGirl.create(:volunteer_availability)}
       end
     end
   end

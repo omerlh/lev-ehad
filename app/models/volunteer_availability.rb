@@ -8,4 +8,5 @@ STATUS = {
 
 class VolunteerAvailability < ActiveRecord::Base
     belongs_to :volunteer
+    validates  :day, presence: true
 end
