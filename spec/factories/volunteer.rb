@@ -19,7 +19,7 @@ FactoryGirl.define do
       # to create and we make sure the user is associated properly to the post
       before(:create) do |volunteer, evaluator|
         evaluator.volunteer_avilabilities_count.times {
-        	volunteer.volunteer_availabilities << FactoryGirl.create(:volunteer_availability)}
+        	volunteer.volunteer_availabilities << FactoryGirl.create(:volunteer_availability, :volunteer => volunteer)}
       end
     end
   end
