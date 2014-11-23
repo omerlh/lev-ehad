@@ -1,13 +1,14 @@
 require 'spec_helper' 
 require 'nulldb_rspec'
 
-#include NullDB::RSpec::NullifiedDatabase
+include NullDB::RSpec::NullifiedDatabase
 
 describe Volunteer do 
   it "has a valid factory" do 
   	v = FactoryGirl.create(:volunteer_with_volunteer_availabilities)
   	expect(v).to be_valid
   end
+
   it {should have_many(:volunteer_availabilities)}
 
   it {should validate_presence_of(:first_name)}
@@ -30,6 +31,15 @@ describe Volunteer do
   				expect(v).not_to be_valid
   			end
   		end
+  	end
+  end
+
+  describe "allocate for a day" do
+  	before :each do
+  		@smith = FactoryGirl.build(:volunteer, last_name: "smith")
+  	end
+  	it "return a list of available Volunteers for the given day" do
+  		Volunteer.available_for_day("12.10.2014", "4")
   	end
   end
 end
