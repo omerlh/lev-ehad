@@ -5,4 +5,5 @@ require 'nulldb_rspec'
 
 describe VolunteerAvailability do
 	it {should validate_presence_of(:day)}
+	it {should belong_to(:volunteer)}
 end
