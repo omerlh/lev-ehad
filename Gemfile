@@ -37,6 +37,8 @@ group :test do
   gem 'capybara' 
   gem 'guard-rspec' 
   gem 'launchy' 
+  gem 'shoulda'
+  gem 'activerecord-nulldb-adapter'
 end
 
 gem 'faker'
