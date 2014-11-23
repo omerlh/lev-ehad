@@ -53,6 +53,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    currencies (0.4.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -127,6 +130,11 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    phony (2.7.1)
+    phony_rails (0.8.0)
+      activesupport (>= 3.0)
+      countries (>= 0.8.2)
+      phony (~> 2.7.1)
     pikaday-gem (1.2.0)
       railties (>= 3.1)
     polyamorous (1.1.0)
@@ -269,6 +277,7 @@ DEPENDENCIES
   kendoui-rails
   launchy
   pg
+  phony_rails
   pikaday-gem
   pry
   pry-rails

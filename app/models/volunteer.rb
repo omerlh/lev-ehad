@@ -7,6 +7,9 @@ class Volunteer < ActiveRecord::Base
     validates_associated :volunteer_availabilities
     validates :volunteer_availabilities, :length => {:minimum => 1, :message=>"At least one volunteer_availability" }
 
+    phony_normalize :phone_number, :default_country_code => 'IL'
+    validates :phone_number, :phony_plausible => true
+
     def self.available_for_day day, sessionid
       v = nil
       v = VolunteerAvailability

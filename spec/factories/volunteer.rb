@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :volunteer do 
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    phone_number { Faker::PhoneNumber.phone_number }
+    phone_number { "054-6839008" }
     # user_with_posts will create post data after the user has been created
     factory :volunteer_with_volunteer_availabilities do
       # volunteer_avilabilities_count is declared as a transient attribute and available in
