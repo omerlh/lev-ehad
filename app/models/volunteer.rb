@@ -2,6 +2,8 @@ class Volunteer < ActiveRecord::Base
     has_many :volunteer_availabilities, autosave: true
     validates :first_name, presence: true
     validates :last_name, presence: true
+    validates :phone_number, presence: true
+
     validates_associated :volunteer_availabilities
     validates :volunteer_availabilities, :length => {:minimum => 1, :message=>"At least one volunteer_availability" }
 
