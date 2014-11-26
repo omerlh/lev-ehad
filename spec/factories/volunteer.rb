@@ -18,7 +18,7 @@ FactoryGirl.define do
       # evaluator, which stores all values from the factory, including transient
       # attributes; `create_list`'s second argument is the number of records
       # to create and we make sure the user is associated properly to the post
-      before(:create) do |volunteer, evaluator|
+      after(:build) do |volunteer, evaluator|
         evaluator.volunteer_avilabilities_count.times {
         	volunteer.volunteer_availabilities << FactoryGirl.create(:volunteer_availability, :volunteer => volunteer)}
       end
