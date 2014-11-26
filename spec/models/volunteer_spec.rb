@@ -15,9 +15,15 @@ describe Volunteer do
   it {should validate_presence_of(:last_name)}
   it {should validate_presence_of(:phone_number)}
 
-  it "should have volunteer availabilities" do
-  	v = FactoryGirl.build(:volunteer_with_volunteer_availabilities, volunteer_avilabilities_count: 0)
-  	expect(v).not_to be_valid
+  describe "volunteer_availabilities" do
+  	it "invlid without any volunteer_availabilities" do
+  		v = FactoryGirl.build(:volunteer_with_volunteer_availabilities, volunteer_avilabilities_count: 0)
+  		expect(v).not_to be_valid
+  	end
+  	it "valid with at least one volunteer_availabilities" do
+  		v = FactoryGirl.build(:volunteer_with_volunteer_availabilities, volunteer_avilabilities_count: 1)
+  		expect(v).to be_valid
+  	end
   end
 
   describe "phone number validation" do
